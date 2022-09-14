@@ -4,16 +4,22 @@ import Modal from "./components/Modal"
 import Spinner from "./components/Spinner"
 
 function App() {
-  const [description, setDescription] = useState()
+  const [description, setDescription] = useState("")
   const [showModal, setShowModal] = useState(false)
   const [answer, setAnswer] = useState(undefined)
 
   const handleForm = (e) => {
-    setAnswer(undefined)
     e.preventDefault()
     setShowModal(true);
+    setAnswer(undefined)
+
+    if(description === ""){
+      setAnswer('Debes de escribir alguna descripción')
+      return
+    }
+
     try{
-      fetch("http://ed1d-181-130-133-113.ngrok.io/predict", {
+      fetch("http://0136-23-137-104-133.ngrok.io/predict", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ description })
