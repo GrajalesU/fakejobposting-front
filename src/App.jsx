@@ -19,7 +19,7 @@ function App() {
     }
 
     try{
-      fetch("http://0136-23-137-104-133.ngrok.io/predict", {
+      fetch("http://e8d1-23-137-104-133.ngrok.io/predict", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ description })
